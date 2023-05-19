@@ -19,3 +19,4 @@ if (method_exists($controller, $methodName)) {
 } else {
     throw new Exception("Method $methodName not found in controller $controllerName.");
 }
+
