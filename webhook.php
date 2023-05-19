@@ -3,7 +3,7 @@
 $secret = '5k}PP}Be3g(48[D=TvRv2=Hb#46Ga7q@';
 
 // Le chemin vers le répertoire de votre projet
-$repo = '/var/www/devnet/projet_immobilier_mvc';
+$repo = '/devnet/projet_immobilier_mvc';
 
 // Le nom de la branche que vous voulez déployer (par exemple, "main" ou "master")
 $branch = 'main';
