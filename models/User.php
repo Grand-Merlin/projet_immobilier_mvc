@@ -1,6 +1,7 @@
 <?php
 
 class User {
+    
     // Paramètres de connexion à la base de données
     private $dbHost;
     private $dbUser;
