@@ -1,0 +1,242 @@
+/* Style général pour le corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative; /* Nouveau */
+}
+#background-div {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 90vw; /* 90% de la largeur de la fenêtre du navigateur */
+    height: 80vh; /* 80% de la hauteur de la fenêtre du navigateur */
+    transform: translate(-50%, -50%);
+    overflow: hidden;  /* cache tout ce qui déborde du div */
+    border-radius: 2%;  /* arrondit les bords du div */
+    z-index: 0;  /* place le div derrière le reste du contenu */
+}
+
+
+.background, .background_dark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: opacity 1s ease-in-out;
+    z-index: -1; /* Nouveau */
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background-image 1s ease-in-out;
+}
+
+.background_dark {
+    background-image: url("../img/background_dark.jpg");
+    opacity: 0;
+}
+
+#content-div {
+    position: relative;
+    z-index: 1;  /* place le contenu devant #background-div */
+}
+
+body.dark-mode .background {
+    opacity: 0;
+}
+
+body.dark-mode .background_dark {
+    opacity: 1;
+}
+
+form, .button-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Votre code CSS actuel... */
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+form {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+label, input {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+button, input[type="submit"] {
+    height: 50px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #1e7e34;
+}
+
+.input-container {
+    display: flex;
+    gap: 20px;
+}
+
+/* Votre code CSS actuel pour le switch... */
+
+body, form, button, input[type="submit"] {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+form.dark-mode {
+    background-color: #444;
+    border-color: #666;
+}
+
+button.dark-mode, input[type="submit"].dark-mode {
+    background-color: #555;
+}
+
+button.dark-mode:hover, input[type="submit"].dark-mode:hover {
+    background-color: #666;
+}
+
+/* Votre code CSS pour le switch... */
+
+#toggle_checkbox {
+    display: none;
+}
+
+label[for="toggle_checkbox"] {
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    width: 116px;
+    height: 56px;
+    margin: 0 auto;
+    background-color: #77b5fe;
+    border-radius: 56px;
+    cursor: pointer;
+    transition: 0.3s ease background-color;
+    overflow: hidden;
+}
+
+#star {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    width: 30px;
+    height: 30px;
+    background-color: #fafd0f;
+    transform: scale(1);
+    border-radius: 50%;
+    transition: 0.3s ease top, 0.3s ease left, 0.3s ease transform, 0.3s ease background-color;
+    z-index: 1;
+}
+
+#star-1 {
+    position: relative;
+}
+
+#star-2 {
+    position: absolute;
+    transform: rotateZ(36deg);
+}
+
+.star {
+    top: 0;
+    left: -7px;
+    font-size: 54px;
+    line-height: 28px;
+    color: #fafd0f;
+    transition: 0.3s ease color;
+}
+
+#moon {
+    position: absolute;
+    bottom: -52px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.3s ease bottom;
+}
+
+#moon:before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: -17px;
+    width: 40px;
+    height: 40px;
+    background-color: #03a9f4;
+    border-radius: 50%;
+    transition: 0.3s ease background-color;
+}
+
+#toggle_checkbox:checked+label {
+    background-color: #000;
+}
+
+#toggle_checkbox:checked+label #star {
+    top: 3px;
+    left: 64px;
+    transform: scale(0.3);
+    background-color: yellow;
+}
+
+#toggle_checkbox:checked+label .star {
+    color: white;
+}
+
+#toggle_checkbox:checked+label #moon {
+    bottom: 8px;
+}
+
+#toggle_checkbox:checked+label #moon:before {
+    background-color: #000;
+}
